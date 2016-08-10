@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+<script src="./highchart.annotation.js"></script>
+<link rel="stylesheet" href="./css/highchart.annotation.css"></link>
+
+<style>
+.chartEdit{
+    width: 30px;
+    height: 30px;
+    background: rgba(158, 158, 158, 0.23);
+    margin: 5px;
+    right: 80px;
+    position: absolute;
+    z-index: 4;
+    border-radius: 5px;
+}
+</style>
+
+
+
+<script type="text/javascript">
+
+
+$(function () {
+	var chartContainer = $("#container1")[0];
+    var chartObj = new Highcharts.Chart({
+    	exporting:false,
+        chart: {
+        	renderTo: chartContainer,
+            type: 'bar',
+            zoomType:'xy'
+        },
+        title: {
+            text: 'Historic World Population by Region'
+        },
+        subtitle: {
+            text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+        },
+        xAxis: {
+            categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Population (millions)',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' millions'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 80,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Year 1800',
+            data: [107, 31, 635, 203, 2]
+        }, {
+            name: 'Year 1900',
+            data: [133, 156, 947, 408, 6]
+        }, {
+            name: 'Year 2012',
+            data: [1052, 954, 4250, 740, 38]
+        }]
+    });
+
+	var chart1Editor = new HighchartAnnotation(chartObj,$("div#toggleAction1"),$(".chartnDrawbarContainer1"));
+
+    var chartContainer2 = $("#container2")[0];
+    var chartObj2 =new Highcharts.Chart({
+        chart: {
+            type: 'area',
+            renderTo: chartContainer2,
+            zoomType:'xy'
+        },
+        title: {
+            text: 'Area chart with negative values'
+        },
+        xAxis: {
+            categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'John',
+            data: [5, 3, 4, 7, 2]
+        }, {
+            name: 'Jane',
+            data: [2, -2, -3, 2, 1]
+        }, {
+            name: 'Joe',
+            data: [3, 4, 4, -2, 5]
+        }]
+    });
+
+   var chart2Editor = new HighchartAnnotation(chartObj2,$("div#toggleAction2"),$(".chartnDrawbarContainer2"));
+
+});
+
+</script>
+<body  class="containerglobal" >
+    <div class="chartnDrawbarContainer1">
+    	<div id="toggleAction1" class="chartEdit">
+    		<span class="icon-font" aria-hidden="true"></span>
+    	</div>	
+        <div id="container1" ></div>
+    </div>
+	<div class="chartnDrawbarContainer2">
+        <div id="toggleAction2" class="chartEdit">
+            <span class="icon-font"  aria-hidden="true"></span>
+        </div>  
+        <div id="container2" ></div>
+    </div>
+</body>
+</html>
