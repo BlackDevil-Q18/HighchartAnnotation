@@ -6,6 +6,6 @@ Included features :-
 2. Line marker
 3. Area indicator
 
-<img src="http://imgur.com/a/EIYse"></img>
+<img src="./ezgif.com-video-to-gif (1).gif"></img>
 
-<img src="http://imgur.com/a/uyMaN"></img>
+<img src="./ezgif.com-video-to-gif.gif"></img>
