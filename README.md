@@ -28,7 +28,7 @@ Step 1 : Include script and css</br>
 Step 2 : Have following Highchart Container HTML Structure</br>
           <pre>
             div id="highchartContainerParent"
-              div id-"highchartContainer"
+              div id="highchartContainer"
           </pre>
           </br>
 Step 3 : Get highchart refernece chartObj</br>
@@ -39,7 +39,7 @@ Step 3 : Get highchart refernece chartObj</br>
                       
 </pre>
 </br>
-Step 4 : Use * chartObj * #highchartContainerParent *enableAnnotationbutton to create HighchartAnnotation object.</br>
+Step 4 : Use *chartObj, *#highchartContainerParent, *enableAnnotationbutton, to create HighchartAnnotation object.</br>
 <pre>
-  new HighchartAnnotation(chartObj,toggleActionbtn",highchartContainerParent)
+  new HighchartAnnotation(chartObj,toggleActionbtn,highchartContainerParent)
 </pre>
